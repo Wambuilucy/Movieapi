@@ -1,0 +1,82 @@
+{% load static %} 
+{% load bootstrap5 %} 
+{% load embed_video_tags %}
+{%include 'base.html'%} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/trailer.css' %}" />
+{% endblock %} 
+
+
+{% block content%}
+
+<div class="container">
+  <h3>Available Trailers</h3>
+  <div class="row">
+    {% for video in videos %}
+    <div class="col-md-6 ">
+      <div class="card">
+        <div class="card-image">
+          <div class="embed-responsive embed-responsive-16by9">
+
+            {% video video.url as my_video %}
+                URL: {{ my_video.url }}
+                Thumbnail: {{ my_video.poster }}
+                Backend: {{ my_video.backend }}
+                {% video my_video 'medium' %}
+                {% endvideo %}
+
+            <!-- <video width="280" height="157" poster="{{ video.poster}}" controls>
+              <source src="{{ video.video.url}}" type="video/mp4">
+              <source src="{{ video.video.url}}" type=video/webm> 
+              <source src="{{ video.video.url}}" type=video/ogg> 
+              <source src="{{ video.video.url}}" type=video/3gp>
+            </video> -->
+           
+          </div><!--End Div embed-responsive-->
+
+        </div>
+        <!-- card image -->
+
+        <div class="card-content">
+          <span class="card-title">{{ video.title| truncatechars:50 }}</span>
+          <p class="mt-1"><b>Description</b> <br> 
+          <small>
+            {{ video.description| truncatechars:111 }}
+          </small></p>
+
+          {% if video.likes and video.views %}
+          <p class="lead">Views {{ video.views }} * Likes {{ video.likes }}</p>
+          {% else %}
+          <p class="lead">No Views Available * No Likes Available}</p>
+          {% endif %}
+          <p><small>Duration {{ video.duration }} Minutes</small></p>
+
+        </div>
+        <!-- card content -->
+
+      </div>
+    </div>
+   
+    {% endfor %}
+  </div>
+
+   </div>
+
+
+
+
+<!-- <script>
+  $(function(){
+
+    $('#show').on('click',function(){        
+        $('.card-reveal').slideToggle('slow');
+    });
+    
+    $('.card-reveal .close').on('click',function(){
+        $('.card-reveal').slideToggle('slow');
+    });
+});
+</script> -->
+
+{% endblock %}

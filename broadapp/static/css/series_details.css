@@ -1,0 +1,109 @@
+*{
+    font-family: 'Playfair Display',arial,sans-serif;
+}
+
+video {  
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    /* position: fixed; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden !important;
+  }
+
+  h1,h2,h3,h4,p,a{
+    color: #dedede !important;
+  }
+
+  .foot p{
+      display: inline-block;
+      padding: 10px;
+      margin: 10px;
+  }
+
+
+.blurEffect {
+    -webkit-filter: blur(7px);
+    -o-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+}
+
+.content {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%,-50%);
+    top: 70%;
+    left: 50%;
+    color: #FFF;
+    /* width: 100%; */
+    text-align: center;
+    /* z-index: 999; */
+}
+
+.play {
+    font-size: 50px;
+    cursor: pointer;
+    border: 3px solid #FFF;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+    padding: 9px 29px;
+}
+
+.play:hover {
+    color: red;
+}
+
+.episodes h4{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:440px){
+    .content{
+
+        position: absolute;
+        top: 60% !important;
+    }
+}
+
+@media screen and (max-width:768px){
+    .content{
+        top: 40%;
+    }
+}
+
+@media screen and (max-width:1025){
+    .content{
+        top: 10%;
+    }
+}
+
+
+
+  

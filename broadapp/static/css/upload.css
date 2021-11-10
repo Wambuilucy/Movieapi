@@ -1,0 +1,37 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+    color: #dedede !important;
+    font-family: 'Playfair Display',arial,sans-serif;
+}
+
+.not-visible{
+    display: none;
+}
+
+.color{
+    color: #dedede !important;
+}
+
+label{
+    color: #dedede !important;
+}
+
+input, select, textarea{
+    color: black !important;
+    font-weight: 500;
+}
+
+textarea:focus, input:focus {
+    color: black !important;
+    font-weight: 500;
+}
+
+.middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}

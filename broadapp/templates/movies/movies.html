@@ -1,0 +1,332 @@
+{% load static %} 
+{% load bootstrap5 %} 
+{%include 'base.html'%} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/movies.css' %}" />
+{% endblock %} 
+
+
+{% block content%}
+
+{% if not object_list %}
+
+
+<div class="no">
+  <h2>Movies Not Available </h2>
+<br>
+<p class="lead">Please wait as movies are uploaded thank you...</p>
+</div>
+
+<center>
+
+<div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-light" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+</center>
+
+{% else %}
+
+<h1 class="showcase-heading">ShowCase</h1>
+
+<ul id="autoWidth" class="cs-hidden">
+
+  {% for item in object_random %}
+  <li class="item-a">
+
+    <div class="showcase-box">
+        <a href="{% url 'Movie_Details' item.uuid %}"><img class="img-fluid" src="{{ item.poster.url }}" alt="{{ item.title }}"></a>
+    </div>
+
+  </li>
+  {% endfor %}
+
+</ul>
+
+
+<section id="latest">
+    <h2 class="latest-heading">Popular movies</h2>
+    
+    <ul id="autoWidth2" class="cs-hidden">
+      {% for item in object_random %}
+      {% if item.status == 'popular' %}
+        <li class="item-a">   
+          <div class="latest-box">
+              <div class="latest-b-img">
+               <a href="{% url 'Movie_Details' item.uuid %}"><img class="img-fluid" src="{{ item.poster.url }}" alt="{{ item.title }}"></a>
+              </div>
+              <div class="latest-b-text">
+                  <strong>{{ item.title|title| truncatechars:20 }}</strong>
+                  <p style="text-transform: capitalize;">{{ item.category}}</p>
+              </div>
+              
+          </div>
+      
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        
+    </ul>
+    
+
+    
+    
+
+
+    <h2 class="latest-heading">Trending Movies</h2>
+
+    <ul id="autoWidth3" class="cs-hidden">
+      {% for item in object_random %}
+      {% if item.status == 'trending' %}
+        <li class="item-a">
+      
+          <div class="latest-box">
+              <div class="latest-b-img">
+               <a href="{% url 'Movie_Details' item.uuid %}"><img class="img-fluid" src="{{ item.poster.url }}" alt="{{ item.title }}"></a>
+              </div>
+              <div class="latest-b-text">
+                  <strong>{{ item.title|title | truncatechars:20 }}</strong>
+                  <p style="text-transform: capitalize;">{{ item.category}}</p>
+              </div>
+              
+          </div>
+      
+        </li>
+        {% endif %}
+        {% endfor %}
+
+    </ul>
+
+
+
+
+
+    <h2 class="latest-heading">Recently Added Movies</h2>
+
+    <ul id="autoWidth4" class="cs-hidden">
+      {% for item in object_random %}
+      {% if item.status == 'recently added' %}
+      
+        <li class="item-a">
+      
+          <div class="latest-box">
+              <div class="latest-b-img">
+               <a href="{% url 'Movie_Details' item.uuid %}"><img class="img-fluid" src="{{ item.poster.url }}" alt="{{ item.title }}"></a>
+              </div>
+              <div class="latest-b-text">
+                  <strong>{{ item.title|title | truncatechars:39 }}</strong>
+                  <p style="text-transform: capitalize;">{{ item.category}}</p>
+              </div>
+              
+          </div>
+      
+        </li>
+
+      {% endif %}
+
+
+        {% endfor %}
+
+    </ul>
+
+
+
+
+
+
+
+
+    <div class="movies-heading">
+        <h2>All Movies</h2>
+    </div>
+
+    <div class="media_any">
+    <section id="movies-list">
+
+      
+        <div class="movies-box">
+          {% for item in object_list %}
+        <div class="movies-img">
+           <a href="{% url 'Movie_Details' item.uuid %}"><img class="img-fluid" src="{{ item.poster.url }}" alt="{{ item.title }}"></a>
+        </div>
+        <!-- <a href="#" type="button" class="btn btn-outline-secondary">Details</a> -->
+        {% endfor %}
+    </div>
+    
+  
+    </section>
+
+  </div>
+
+    <div class="media_all">
+
+    <section id="movies-list">
+
+      {% for item in page_obj %}
+        <div class="movies-box">
+         
+        <div class="movies-img">
+           <a href="{% url 'Movie_Details' item.uuid %}"><img class="img-fluid" src="{{ item.poster.url }}" alt="{{ item.title }}"></a>
+        </div>
+        <!-- <a href="#" type="button" class="btn btn-outline-secondary">Details</a> -->
+       
+    </div>
+    
+    {% endfor %}
+    </section>
+
+    {% if page_obj.has_other_pages %}
+    <div class="btns"> 
+
+
+    <nav aria-label="...">
+      <ul style="color: #dedede;" class="pagination">
+
+        {% if page_obj.has_previous %}
+
+        <li style="color: #dedede;" class="page-item">
+          <a style="color: #dedede;" class="page-link pagit" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
+        
+        {% else %}
+        <li class="page-item">
+          <a class="page-link disabled" aria-disabled="true">Previous</a>
+        </li>
+
+        {% endif %}
+
+        <!-- <li class="page-item"><a style="color: #dedede;" class="page-link" href="#">1</a></li> -->
+
+        {% for pages in page_obj.paginator.page_range %}
+
+        {% if page_obj.number == pages %}
+
+        <li class="page-item active" aria-current="page">
+          <a style="color: #dedede;" class="page-link" href="#">{{pages}}</a>
+        </li>
+
+        {% else %}
+        <li class="page-item">
+          <a style="color: #dedede;" class="page-link" href="?page={{ pages }}">{{ pages }}</a>
+        </li>
+
+        {% endif %}
+        {% endfor %}
+
+        <!-- <li class="page-item"><a style="color: #dedede;" class="page-link" href="#">3</a></li> -->
+
+        {% if page_obj.has_next %}
+
+        <li class="page-item">
+          <a style="color: #dedede;" class="page-link pagit" href="?page={{ page_obj.next_page_number }}">Next</a>
+        </li>
+
+        {% else %}
+        <li class="page-item">
+          <a class="page-link disabled">Next</a>
+        </li>
+
+        {% endif %}
+        
+      </ul>
+    </nav>
+
+  </div>
+
+  {% endif %}
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="{% static 'js/lightslider.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#autoWidth2,#autoWidth3,#autoWidth4').lightSlider({
+            autoWidth:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#autoWidth2,#autoWidth3,#autoWidth4').removeClass('cS-hidden');
+            } 
+        });  
+      });
+</script>
+
+<script>
+  $(document).ready(function() {
+    var autoplaySlider = $('#autoWidth').lightSlider({
+        auto:true,
+        loop:true,
+        pauseOnHover: true,
+        onBeforeSlide: function (el) {
+            $('#current').text(el.getCurrentSlideCount());
+        } 
+    });
+    $('#total').text(autoplaySlider.getTotalSlideCount());
+});
+</script>
+
+<br />
+<br />
+{%include 'footer.html'%}
+
+
+
+{% endif %}
+
+
+{% endblock %}

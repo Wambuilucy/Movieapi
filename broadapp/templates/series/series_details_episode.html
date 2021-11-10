@@ -1,0 +1,85 @@
+{% load static %} 
+{% load bootstrap5 %} 
+{%include 'base.html'%} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/series_details.css' %}" />
+{% endblock %} 
+
+
+{% block content%}
+<!-- <div class="jumbotron text-center mb-2">
+    <h3 class="display-6"><b><span class="badge rounded-pill bg-secondary">{{series.title}}</span></b></h3>
+    <hr style="color: #dedede;">
+</div> -->
+<div class="container">
+    <div class="container text-center mb-4 mt-3">
+        <h2><b><span class="badge rounded-pill bg-primary">{{series.title}}</span></b></h2>
+    </div>
+    <div class="wrapper">
+        <!-- <video poster="{{ series.poster.url}}" playsinline muted loop>
+            <source src="{{ series.episodes.episodes.url}}" type="video/webm">
+            <source src="{{ series.episodes.episodes.url}}" type="video/mp4">
+          </video> -->
+
+          <video class="video blurEffect" poster="{{ series.poster.url}}" controls >
+            <source src="{{ series.episodes.episodes.url }}" type="video/mp4">
+            <source src="{{ series.episodes.episodes.url }}" type=video/webm> 
+            <source src="{{ series.episodes.episodes.url }}" type=video/ogg> 
+            <source src="{{ series.episodes.episodes.url }}" type=video/3gp>
+            </video>
+            <div class="content">
+                <div class="play">►</div>
+
+            </div>
+    </div>
+
+            <!-- <main>
+            <p>A video!</p>
+            <div class="videoWrapper">
+                <iframe width="560" height="315" src="{{ series.episodes.episodes.url }}" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>Nice! Aspect Ratio!</p>
+            </main> -->
+            
+  </div>
+
+  <div class="jumbotron text-center mb-4 mt-3">
+    <p class="lead"><b><span class="badge rounded-pill bg-primary lead">Synopsis</span></b></p>
+    <p>{{series.description}}</p>
+    <hr class="my-4">
+    <div class="foot">
+    <p><span class="badge rounded-pill bg-secondary">Released</span> : <small><b>{{series.release_year}}</b></small></p>
+    <p><span class="badge rounded-pill bg-secondary">Genre</span> : <b>{{series.category}}</b></p>
+</div>
+  </div>
+
+  <div class="container">
+      <h3>Episodes List :</h3>
+  </div>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.play').click(function () {
+            if($(this).parent().prev().get(0).paused){
+                $(this).parent().prev().get(0).play();
+                $(this).parent().prev().removeClass('blurEffect');
+                $('.content').hide();
+            }
+        });
+    
+        $('.video').on('ended',function(){
+            $(this).addClass('blurEffect');
+          $('.content').show();
+        });
+    })
+</script>
+
+{% endblock%}
+
+{%include 'footer.html'%}

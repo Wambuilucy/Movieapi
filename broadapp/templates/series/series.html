@@ -1,0 +1,148 @@
+{% load static %} 
+{% load bootstrap5 %} 
+{%include 'base.html'%} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/series.css' %}" />
+{% endblock %} 
+
+
+{% block content%}
+
+{% if not object_list %}
+
+<div class="no">
+  <h2>TV Shows Not Available </h2>
+<br>
+<p class="lead">Please wait as series are uploaded thank you...</p>
+</div>
+
+<center>
+
+<div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-light" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+</center>
+
+{% else %}
+
+<div class="movies-heading">
+    <h2>All Series & TV Shows</h2>
+</div>
+
+<section id="movies-list">
+  <div class="container-fluid">
+  <div class="row">
+  {% for item in object_list %}
+  <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4 info">
+    <div class="movies-box">
+    <div class="movies-img">
+       <a href="{% url 'Series_Details' item.uuid %}"><img class="img-fluid" src="{{ item.poster.url }}" alt="{{ item.title }}"></a>
+    
+    <div class="name">
+      <p>
+       <a href="{% url 'Series_Details' item.uuid %}" class="name">{{ item.title|title | truncatechars:39 }}</a>
+      </p>
+    </div>
+    </div>
+    </div>
+  </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- </div>
+  </div> -->
+
+
+</section>
+
+{% if page_obj.has_other_pages %}
+<div class="btns"> 
+
+
+<nav aria-label="...">
+  <ul style="color: #dedede;" class="pagination">
+
+    {% if page_obj.has_previous %}
+
+    <li style="color: #dedede;" class="page-item">
+      <a style="color: #dedede;" class="page-link pagit" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    </li>
+    
+    {% else %}
+    <li class="page-item">
+      <a class="page-link disabled" aria-disabled="true">Previous</a>
+    </li>
+
+    {% endif %}
+
+    <!-- <li class="page-item"><a style="color: #dedede;" class="page-link" href="#">1</a></li> -->
+
+    {% for pages in page_obj.paginator.page_range %}
+
+    {% if page_obj.number == pages %}
+
+    <li class="page-item active" aria-current="page">
+      <a style="color: #dedede;" class="page-link" href="#">{{pages}}</a>
+    </li>
+
+    {% else %}
+    <li class="page-item">
+      <a style="color: #dedede;" class="page-link" href="?page={{ pages }}">{{ pages }}</a>
+    </li>
+
+    {% endif %}
+    {% endfor %}
+
+    <!-- <li class="page-item"><a style="color: #dedede;" class="page-link" href="#">3</a></li> -->
+
+    {% if page_obj.has_next %}
+
+    <li class="page-item">
+      <a style="color: #dedede;" class="page-link pagit" href="?page={{ page_obj.next_page_number }}">Next</a>
+    </li>
+
+    {% else %}
+    <li class="page-item">
+      <a class="page-link disabled">Next</a>
+    </li>
+
+    {% endif %}
+    {% endif %}
+    
+  </ul>
+</nav>
+
+</div>
+
+
+
+
+<br />
+<br />
+{%include 'footer.html'%}
+
+{% endif %}
+
+{% endblock %}

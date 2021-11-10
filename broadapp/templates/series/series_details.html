@@ -1,0 +1,150 @@
+{% load static %} 
+{% load bootstrap5 %} 
+{%include 'base.html'%} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/series_details.css' %}" />
+{% endblock %} 
+
+
+{% block content%}
+<!-- <div class="jumbotron text-center mb-2">
+    <h3 class="display-6"><b><span class="badge rounded-pill bg-secondary">{{series.title}}</span></b></h3>
+    <hr style="color: #dedede;">
+</div> -->
+<div style="overflow-x: hidden !important;" class="container-fluid">
+    <div class="text-center mb-4 mt-3">
+        <h2><b><span style="text-decoration: underline;">{{series.title| title}}</span></b></h2>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <!-- <video poster="{{ series.poster.url}}" playsinline muted loop>
+            <source src="{{ series.episodes.episodes.url}}" type="video/webm">
+            <source src="{{ series.episodes.episodes.url}}" type="video/mp4">
+          </video> -->
+
+          <video class="video blurEffect" poster="{{ series.poster.url}}" controls >
+            <source src="{{ series.episodes.episodes_1.url }}" type="video/mp4">
+            <source src="{{ series.episodes.episodes_1.url }}" type=video/webm> 
+            <source src="{{ series.episodes.episodes_1.url }}" type=video/ogg> 
+            <source src="{{ series.episodes.episodes_1.url }}" type=video/3gp>
+            </video>
+            <div class="content">
+                <div class="play">►</div>
+
+            </div>
+        </div>
+
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+
+
+        </div>
+
+            
+  </div>
+   
+  <div class="jumbotron text-center mb-4 mt-3">
+    <p class="lead"><b><span class="badge rounded-pill bg-primary lead">Synopsis</span></b></p>
+    <p>{{series.description}}</p>
+    <!-- <hr class="my-4"> -->
+    <div class="foot">
+    <p><span class="badge rounded-pill bg-secondary">Released</span> : <small><b>{{series.release_year}}</b></small></p>
+    <p><span class="badge rounded-pill bg-secondary">Genre</span> : <b>{{series.category| title}}</b></p>
+</div>
+<div>
+    <p>Watch Trailer !</p>
+    <a class="btn btn-outline-secondary" href="{% url 'Test_Series' series.title %}">Trailer</a>
+</div>
+  </div>
+
+  <div class="container">
+      <h3>Episodes List :</h3>
+  
+      <div class="episodes">
+          {% if series.episodes.episodes_1 %}
+          <h4><a class="btn btn-secondary btn-lg" href="#">Episode 1</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_2 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_2.url }}" target="_blank">Episode 2</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_3 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_3.url }}" target="_blank">Episode 3</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_4 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_4.url }}" target="_blank">Episode 4</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_5 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_5.url }}" target="_blank">Episode 5</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_6 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_6.url }}" target="_blank">Episode 6</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_7 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_7.url }}" target="_blank">Episode 7</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_8 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_8.url }}" target="_blank">Episode 8</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_9 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_9.url }}" target="_blank">Episode 9</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_10 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_10.url }}" target="_blank">Episode 10</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_11 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_11.url }}" target="_blank">Episode 11</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_12 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_12.url }}" target="_blank">Episode 12</a></h4>
+          {% endif %}
+
+          {% if series.episodes.episodes_13 %}
+          <h4><a class="btn btn-secondary btn-lg" href="{{ series.episodes.episodes_13.url }}" target="_blank">Episode 13</a></h4>
+          {% endif %}
+          
+
+      </div>
+
+
+      </div>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.play').click(function () {
+            if($(this).parent().prev().get(0).paused){
+                $(this).parent().prev().get(0).play();
+                $(this).parent().prev().removeClass('blurEffect');
+                $('.content').hide();
+            }
+        });
+    
+        $('.video').on('ended',function(){
+            $(this).addClass('blurEffect');
+          $('.content').show();
+        });
+    })
+</script>
+
+{% endblock%}
+
+<br>
+<br>
+{%include 'footer.html'%}

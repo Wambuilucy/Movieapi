@@ -1,0 +1,25 @@
+{% load static %}
+{% load bootstrap5 %}
+{%include 'base.html'%}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/upload.css' %}">
+{% endblock %}
+
+{% block content%}
+
+<div class="container middle">
+    <center>
+
+        <p class="lead"><a class="btn btn-outline-success btn-lg" href="{% url 'Upload_Movie' %}">Movie Upload</a></p>
+        <br>
+        <br>
+        <p class="lead"><a class="btn btn-outline-success btn-lg" href="{% url 'Upload_Series' %}">Series Upload</a></p>
+
+        <br>
+    </div>
+
+
+</center>
+
+{% endblock %}

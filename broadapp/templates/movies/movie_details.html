@@ -1,0 +1,84 @@
+{% load static %} 
+{% load bootstrap5 %} 
+{%include 'base.html'%} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/movie_details.css' %}" />
+{% endblock %} 
+
+
+{% block content%}
+<!-- <div class="jumbotron text-center mb-2">
+    <h3 class="display-6"><b><span class="badge rounded-pill bg-secondary">{{movie.title}}</span></b></h3>
+    <hr style="color: #dedede;">
+</div> -->
+<div class="container">
+    
+    <div class="wrapper">
+        <!-- <video poster="{{ movie.poster.url}}" playsinline muted loop>
+            <source src="{{ movie.video.url}}" type="video/webm">
+            <source src="{{ movie.video.url}}" type="video/mp4">
+          </video> -->
+
+          <video class="video blurEffect" poster="{{ movie.poster.url}}" controls  >
+            <source src="{{ movie.video.url }}" type="video/mp4">
+            <source src="{{ movie.video.url }}" type=video/webm> 
+            <source src="{{ movie.video.url }}" type=video/ogg> 
+            <source src="{{ movie.video.url }}" type=video/3gp>
+            </video>
+            <div class="content">
+                <div class="play">►</div>
+
+            </div>
+    </div>
+
+            <!-- <main>
+            <p>A video!</p>
+            <div class="videoWrapper">
+                <iframe width="560" height="315" src="{{ movie.video.url }}" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>Nice! Aspect Ratio!</p>
+            </main> -->
+            
+  </div>
+
+  <div class="jumbotron text-center mb-4 mt-3">
+    <h3 class="display-5"><b><span style="text-decoration: underline;">{{movie.title}}</span></b></h3>
+    <p class="lead"><b><span class="badge rounded-pill bg-primary lead">Synopsis</span></b></p>
+    <p>{{movie.description}}</p>
+    <hr class="my-4">
+    <div class="foot">
+    <p><span class="badge rounded-pill bg-secondary">Released</span> : <small><b>{{movie.releae_year}}</b></small></p>
+    <p><span class="badge rounded-pill bg-secondary">Genre</span> : <b><span style="text-transform: capitalize;">{{movie.category}}</span></b></p>
+
+    <div>
+        <p>Watch Trailer !</p>
+        <br>
+        <a class="btn btn-outline-secondary" href="{% url 'Test' movie.title %}">Trailer</a>
+    </div>
+</div>
+  </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+        $('.play').click(function () {
+            if($(this).parent().prev().get(0).paused){
+                $(this).parent().prev().get(0).play();
+                $(this).parent().prev().removeClass('blurEffect');
+                $('.content').hide();
+            }
+        });
+    
+        $('.video').on('ended',function(){
+            $(this).addClass('blurEffect');
+          $('.content').show();
+        });
+    })
+</script>
+
+{% endblock%}
+
+{%include 'footer.html'%}

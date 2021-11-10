@@ -1,0 +1,38 @@
+*{
+    color: #dedede !important;
+    font-family: 'Playfair Display',arial,sans-serif;
+}
+
+.img-fluid{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.name{
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.name:hover{
+    color: blue !important;
+    text-decoration: underline !important;
+}
+
+.movies-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.2s;
+}
+
+.no{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #dedede;
+    font-family: 'Playfair Display',arial,sans-serif;
+    top: 50%;
+    margin: auto;
+}

@@ -1,0 +1,111 @@
+{% load bootstrap5 %} 
+{% load static %}
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://www.google.com" crossorigin="" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-file-upload/4.0.11/uploadfile.min.css" integrity="sha512-MudWpfaBG6v3qaF+T8kMjKJ1Qg8ZMzoPsT5yWujVfvIgYo2xgT1CvZq+r3Ks2kiUKcpo6/EUMyIUhb3ay9lG7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-file-upload/4.0.11/jquery.uploadfile.min.js" integrity="sha512-uwNlWrX8+f31dKuSezJIHdwlROJWNkP6URRf+FSWkxSgrGRuiAreWzJLA2IpyRH9lN2H67IP5H4CxBcAshYGNw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css" integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js" integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css" integrity="sha512-yJHCxhu8pTR7P2UgXFrHvLMniOAL5ET1f5Cj+/dzl+JIlGTh5Cz+IeklcXzMavKvXP8vXqKMQyZjscjf3ZDfGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.js"></script>
+		
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="dns-prefetch"
+			href="https://parking.bodiscdn.com"
+			crossorigin=""
+		/>
+		<link
+			rel="dns-prefetch"
+			href="https://fonts.googleapis.com"
+			crossorigin=""
+		/>
+		<meta name="description" content="See relevant content for RealTime Broadband.com" />
+		<title>RealTimeBroadband.com</title>
+		<!-- Font Awesome -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+			rel="stylesheet"
+		/>
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- MDB -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+
+	
+	<body style="background-color: #081126">
+
+		<style>
+			h1{
+				font-family: sans-serif, 'Arial';
+				font-size: 30px !important;
+				font-weight: bold !important;
+				margin-top: 30px;
+				margin-bottom: 50px;
+				color: #f11818 !important;
+				
+			}
+			h1 >a {
+				color: #dedede !important;
+				text-decoration: none !important;
+			}
+			
+			h1 >a :hover{
+				color: #dedede !important;
+				cursor: pointer;
+				text-decoration: none !important;
+			}
+		</style>
+		{%include 'navbar.html'%}
+
+		<center>
+			<div class="container mt-2 mb-3">
+				<h1 class="mb-4"><a href="{% url 'MainPage' %}">RealTimeBroadband.com</a></h1>
+				<br />
+			</div>
+		</center>
+		<!-- MDB -->
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+		></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		
+		<script async="" src="//www.google-analytics.com/analytics.js"></script>
+		<script>
+			window.park =
+				'eyJ1dWlkIjoiNDQ0ZmYwMDktYWUyZS00YzljLWY3MTAtMzYwNjk4N2M5YTdiIiwicGFnZV90aW1lIjoxNjM0NDc5MTc2LCJwYWdlX3VybCI6Imh0dHA6XC9cL3llc21vdmllcy5jb21cLz9jYWYmJnF1ZXJ5PVBsYXklMjBNb3ZpZXMlMjBPbmxpbmUmYWZkVG9rZW49Q2hNSXFvbl9pS3pSOHdJVkQ5OGFDaDFzc2dDSkVsTGNIV0NIQzlSVzJaREhPelRSOWRlLVVxbVUtQWpsbUFPc3RhV2hZazhacGp4eThmZE16V2tKMi0yVk1Ic3ZoSXR2Yi1fd3d3emxxTzYyZ1VyVHFUODdsTFAyUy1rZi04VWpyMkdXaktWUWJObzAmcGNzYT1mYWxzZSZuYj0wJm5tPTE2NTYmaXM9NTAweDU1MSZueD0yMDkmbnk9NzcmY2xrdD0xMjciLCJwYWdlX21ldGhvZCI6IkdFVCIsInBhZ2VfcmVxdWVzdCI6eyJjYWYiOiIiLCJxdWVyeSI6IlBsYXkgTW92aWVzIE9ubGluZSIsImFmZFRva2VuIjoiQ2hNSXFvbl9pS3pSOHdJVkQ5OGFDaDFzc2dDSkVsTGNIV0NIQzlSVzJaREhPelRSOWRlLVVxbVUtQWpsbUFPc3RhV2hZazhacGp4eThmZE16V2tKMi0yVk1Ic3ZoSXR2Yi1fd3d3emxxTzYyZ1VyVHFUODdsTFAyUy1rZi04VWpyMkdXaktWUWJObzAiLCJwY3NhIjoiZmFsc2UiLCJuYiI6IjAiLCJubSI6IjE2NTYiLCJpcyI6IjUwMHg1NTEiLCJueCI6IjIwOSIsIm55IjoiNzciLCJjbGt0IjoiMTI3In0sInBhZ2VfaGVhZGVycyI6eyJjb29raWUiOlsiX2dhPUdBMS4yLjkyMTk1ODg5NC4xNjM0NDY3NDM0OyBfZ2lkPUdBMS4yLjEzNzA3MjY1MjguMTYzNDQ2NzQzNCJdLCJhY2NlcHQtbGFuZ3VhZ2UiOlsiZW4tVVMsZW47cT0wLjkiXSwiYWNjZXB0LWVuY29kaW5nIjpbImd6aXAsIGRlZmxhdGUiXSwicmVmZXJlciI6WyJodHRwczpcL1wvd3d3Lmdvb2dsZS5jb21cLyJdLCJhY2NlcHQiOlsidGV4dFwvaHRtbCxhcHBsaWNhdGlvblwveGh0bWwreG1sLGFwcGxpY2F0aW9uXC94bWw7cT0wLjksaW1hZ2VcL2F2aWYsaW1hZ2VcL3dlYnAsaW1hZ2VcL2FwbmcsKlwvKjtxPTAuOCxhcHBsaWNhdGlvblwvc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjkiXSwidXNlci1hZ2VudCI6WyJNb3ppbGxhXC81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXRcLzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZVwvOTQuMC40NjA2LjgxIFNhZmFyaVwvNTM3LjM2Il0sInVwZ3JhZGUtaW5zZWN1cmUtcmVxdWVzdHMiOlsiMSJdLCJjb25uZWN0aW9uIjpbImtlZXAtYWxpdmUiXSwiaG9zdCI6WyJ5ZXNtb3ZpZXMuY29tIl19LCJob3N0IjoieWVzbW92aWVzLmNvbSIsImlwIjoiMTA1LjE2MC4xMC4xMjcifQ==';
+		</script>
+		<script src="/js/parking.2.72.0.js"></script>
+		<script
+			type="text/javascript"
+			src="https://www.google.com/adsense/domains/caf.js"
+		></script>
+		<script src="{% static 'js/lightslider.js' %}"></script>
+
+
+	</body>
+</html>

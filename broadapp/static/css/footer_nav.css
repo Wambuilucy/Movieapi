@@ -1,0 +1,79 @@
+#show:hover{
+    text-decoration: underline;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+
+#mov:hover{
+    text-decoration: underline;
+}
+
+#upload:hover{
+    text-decoration: underline;
+}
+
+#login:hover{
+    text-decoration: underline;
+}
+
+#logout:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+
+    .nav{
+        width: 100vw !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.3rem;
+    }
+    
+    .hide{
+        display: none;
+    }
+
+    .real{
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:auto 0;
+        text-align: center;
+        margin-left: 50%;
+    }
+
+    .copy{
+        font-size: 1.3rem;
+    }
+
+    .privacy{
+        font-size: 1.3rem;
+    }
+
+}
+
+@media screen and (min-width: 480px){
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 1.2rem;
+        padding: 30px 0px;
+        width: 100%;
+        background-color: #000;
+        color: #343b4d;
+      }
+      footer a {
+        color: #343b4d !important;
+      }
+}

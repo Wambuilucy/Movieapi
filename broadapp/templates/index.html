@@ -1,0 +1,70 @@
+{% load static %}
+{% load bootstrap5 %}
+{%include 'base.html'%}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}"> 
+{% endblock  %}
+
+{% block content %} 
+
+<div class="container mt-2 mb-2">
+    <br>
+    <center>
+
+        <div class="row">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="play_movies">
+           
+                <p><a href="{% url 'PlayMovies' %}">Stream & Download Movies</a> <span> <img class="main-img" src="https://afs.googleusercontent.com/ad_icons/standard/publisher_icon_image/chevron.svg?c=%23ffffff" alt="icon"></span></p>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+
+        </div>
+        
+    
+        <div class="row">
+
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+        <div class="stream">
+            <p><a href="{% url 'Stream' %}">Stream TV Shows & Series  </a> <span> <img class="main-img" src="https://afs.googleusercontent.com/ad_icons/standard/publisher_icon_image/chevron.svg?c=%23ffffff" alt="icon"></span></p>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+        <div class="movies_series">
+            <p><a href="{% url 'MoviesSeries' %}">Watch Trailers </a> <span> <img class="main-img" src="https://afs.googleusercontent.com/ad_icons/standard/publisher_icon_image/chevron.svg?c=%23ffffff" alt="icon"></span></p>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+
+    </div>
+
+    </center>
+    
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{%include 'footer.html'%}
+
+{% endblock  %}
+

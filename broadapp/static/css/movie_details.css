@@ -1,0 +1,69 @@
+*{
+    font-family: 'Playfair Display',arial,sans-serif;
+}
+
+video {  
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    /* position: fixed; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden !important;
+  }
+
+  h1,h2,h3,h4,p,a{
+    color: #dedede !important;
+  }
+
+  .foot p{
+      display: inline-block;
+      padding: 10px;
+      margin: 10px;
+  }
+
+.blurEffect {
+    -webkit-filter: blur(7px);
+    -o-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+}
+
+.content {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%,-50%);
+    top: 80%;
+    left: 50%;
+    color: #FFF;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+}
+
+.play {
+    font-size: 50px;
+    cursor: pointer;
+    border: 3px solid #FFF;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 28px;
+}
+
+.play:hover {
+    color: red;
+}
+
+
+
+
+
+
+  

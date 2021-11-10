@@ -1,0 +1,117 @@
+{% load static %} 
+{% load bootstrap5 %} 
+{%include 'base.html'%} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/content.css' %}" />
+{% endblock %} 
+
+
+{% block content%}
+
+<!-- <div class="container_play" id="target" style="opacity: 1"></div> -->
+
+<div class="container container_play">
+
+	<center>
+
+	<p class="id_play_1">
+		<a
+			class="id_play_1"
+			href="{% url 'All_Movies' %}"
+		>
+			Best Movies. No Interruptions - On RealTimeBroadband - 
+			Watch Tarilers get movies as they are released - Stream as much as you want!</a
+		>
+	</p>
+
+	<p class="urls">
+
+	<a
+		href="https://www.showmax.com/" target="_blank"
+	>
+		<span class="ad">Ad</span> https://www.showmax.com/ ▼</a
+	>
+
+	<br>
+	<span class="below_urls"
+
+		>New Shows Added Weekly. Watch Anywhere. No Contracts. Pay Once &amp; Get Up
+		<br />
+		to 50% Off. Keep The Whole Family Entertained, Watch Anywhere &amp; Anytime
+		<br />
+		with Showmax.</span>
+
+</p>
+
+	<h2 class="mb-5">
+		<a class="h2"
+			href="{% url 'All_Movies' %}"
+			>➤ Movies Hub</a
+		>
+	</h2>
+
+
+
+	<p class="id_play_1">
+	<a
+		class="id_play_1"
+		href="https://www.hbo.com/"
+		target="_blank"
+	>
+	HBO Max is home to the greatest shows  and the latest hit movies — 
+	
+</p>
+
+<p class="urls">
+	<a
+		href="https://www.hbo.com/="
+		target="_blank"
+	>
+	   <span class="ad">Ad</span> https://www.hbo.com/ ▼</a
+	>
+
+	<br />
+	<span
+		class="below_urls"
+	>
+	And now you can choose how to watch them with two great <br> subscription options starting at $9.99/month.
+	></span
+	>
+</p>
+
+	<h2 class="mb-5">
+		<a
+			href="https://www.hbo.com/"
+			target="_blank"
+			class="h2"
+			style="
+				-ms-flex-direction: row;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-direction: row;
+				flex-direction: row;
+				-ms-flex-pack: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-ms-flex-align: center;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			"
+		>
+			➤ Visit HBO</a
+		>
+	</h2>
+</center>
+</div>
+<br />
+<br />
+<br />
+<br />
+
+{%include 'footer.html'%}
+
+<!-- </div> -->
+
+{% endblock%}

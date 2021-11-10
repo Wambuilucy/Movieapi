@@ -1,0 +1,151 @@
+/* body{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Playfair Display',arial,sans-serif;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+.movies-box{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    margin: 20px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    border-top: 3px solid #292929;
+}
+
+.info{
+    margin: 20px 10px;
+    border-radius: 5px;
+}
+
+.movies-img{
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.info img{
+    width: 100%;
+    height: 425px;
+    object-fit: cover;
+}
+
+.info:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.2s;
+}
+
+.movies-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.2s;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns li{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name{
+    color: #dedede;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media(max-width:440px){
+    .movies-box a, .movies-box{
+        width: 100%;
+    }
+
+    .movies-box{
+        flex-direction: column;
+    }
+    
+    .movies-img{
+        padding-top: 15px;
+    }
+} */
+
+
+*{
+    color: #dedede !important;
+    font-family: 'Playfair Display',arial,sans-serif;
+}
+
+#movies-list{
+    overflow-x: hidden;
+}
+
+.img-fluid{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.name{
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.name:hover{
+    color: blue !important;
+    text-decoration: underline !important;
+}
+
+.movies-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.2s;
+}
+
+.no{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #dedede;
+    font-family: 'Playfair Display',arial,sans-serif;
+    top: 50%;
+    margin: auto;
+}
+
+.movies-heading h2{
+    font-weight: 400;
+    padding-bottom: 5px;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.movies-heading{
+    margin: 0px 2%;
+    color: #dedede !important;
+    text-transform: capitalize;
+}
